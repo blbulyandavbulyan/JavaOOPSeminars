@@ -7,6 +7,7 @@ public interface MoneyHolder {
     /**
      * Начинает транзакцию по внесению суммы
      * @param amount сумма для внесения
+     * @throws IllegalStateException если транзакция уже начата
      */
     void beginTransaction(int amount);
     /**
@@ -26,6 +27,7 @@ public interface MoneyHolder {
      * Берёт сумму и добавляет её к текущей транзакционной сумме
      * @param amountOfMoney сумма, которую нужно добавить к транзакционной
      * @throws IllegalStateException если транзакция не начата
+     * @throws IllegalArgumentException если amountOfMoney <= 0
      */
     void take(int amountOfMoney);
 
