@@ -55,4 +55,7 @@ public class VendingMachine {
     public Collection<Product> getProducts(){
         return itemHolder.getProducts();
     }
+    public void addProduct(Product product){
+        itemHolder.add(product);
+    }
 }
