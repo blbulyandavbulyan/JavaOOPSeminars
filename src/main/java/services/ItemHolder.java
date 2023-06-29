@@ -1,46 +1,77 @@
 package services;
 
 import domen.Product;
+import services.exceptions.ProductIsNotAvailableException;
 
 import java.util.*;
 
 /**
- * Данный класс должен описывать ту штуку со спиральками в торговой машине
- * Она хранит товары по типам
+ * Данный класс предназначен для хранения продуктов
+ *
  */
 public class ItemHolder {
+
+    private final Map<Long, Product> idToProduct;
+    private final Collection<Product> unmodifiableProducts;
+
     /**
-     * список с очередями продуктов, индекс в списке сопоставлен с номером продукта для выбора
+     * Создаёт держатель продуктов с заданными продуктами
+     * @param products продукты которые нужно добавить
      */
-    private final List<Queue<Product>> productQueues;
-    private final int maxDepth;
-    private final int rows;
-    private final int columns;
-    public ItemHolder(int rows, int columns, int maxDepth){
-        if(rows <= 0 || columns <= 0)throw new IllegalArgumentException("rows and columns must be greater than 0");
-        if(maxDepth <= 0)throw new IllegalArgumentException("max depth must be greater than zero");
-        this.rows = rows;
-        this.columns = columns;
-        this.maxDepth = maxDepth;
-        productQueues = new ArrayList<>(rows*columns);
-        //начальная инициализация пустыми очередями
-        for(int i = 0; i < rows*columns; i++){
-            productQueues.add(new ArrayDeque<>());
-        }
-    }
-    public void add(Product product){
-        //чтобы автомат заполнялся равномерно, нам нужно найти ячейку с минимальным количеством элементов, которые меньше чем max depth
-        var products = productQueues.stream()
-                .filter(q->q.size() < maxDepth)
-                .min(Comparator.comparingInt(Collection::size))
-                .orElseThrow(()-> new RuntimeException("Машина уже полная!"));
-        products.add(product);
-    }
-    public int getRows() {
-        return rows;
+    public ItemHolder(Collection<Product> products){
+        idToProduct = new HashMap<>();
+        unmodifiableProducts = Collections.unmodifiableCollection(idToProduct.values());//оборачиваем продукты в немодифицироваемое view над исходными значениями в map
+        products.forEach(this::add);
     }
 
-    public int getColumns() {
-        return columns;
+    /**
+     * Добавляет продукт в наименее забитое место
+     * @param product продукт который нужно добавить
+     */
+    public void add(Product product){
+        //чтобы автомат заполнялся равномерно, нам нужно найти ячейку с минимальным количеством элементов, которые меньше чем max depth
+        if(idToProduct.containsKey(product.getId()))throw new IllegalArgumentException("product already added!");
+        idToProduct.put(product.getId(), product);
+    }
+
+    /**
+     * Проверяет, доступен ли продукт с заданным номером
+     * @param productId ИД продукта для проверки на доступность
+     * @return true если доступен, иначе false
+     */
+    public boolean isAvailable(long productId){
+        return idToProduct.containsKey(productId);
+    }
+
+    /**
+     * Возвращает продукт под заданным номером и удаляет его из себя
+     * @param productId номер продукта для выбора
+     * @return продукт под номером productId
+     * @throws ProductIsNotAvailableException если продукта нет в наличии
+     */
+    public Product release(long productId){
+        if(isAvailable(productId)){
+            return idToProduct.get(productId);
+        }
+        else throw new ProductIsNotAvailableException(productId);
+    }
+
+    /**
+     * Смотрит какая цена у продукта
+     * @param productNumber номер продукта, цену которого нужно проверить
+     * @return цену продукта
+     * @throws ProductIsNotAvailableException если продукта нет в наличии
+     */
+    public int getPrice(long productNumber){
+        if(isAvailable(productNumber)) return idToProduct.get(productNumber).getPrice();
+        else throw new ProductIsNotAvailableException(productNumber);
+    }
+
+    /**
+     * Получить список доступных продуктов
+     * @return возвращает не модифицируемую коллекцию с продуктами
+     */
+    public Collection<Product> getProducts() {
+        return unmodifiableProducts;
     }
 }

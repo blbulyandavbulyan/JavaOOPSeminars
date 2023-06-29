@@ -1,7 +1,11 @@
 package services;
+import domen.Product;
+
 import java.util.Collection;
+import java.util.Map;
 
 public interface ItemSelector {
-     Integer select(Collection<Integer> availableNumbers);
+
+     long select(Collection<Product> availableNumbers);
 
 }
