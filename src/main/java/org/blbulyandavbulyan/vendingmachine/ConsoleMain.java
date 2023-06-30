@@ -1,7 +1,5 @@
 package org.blbulyandavbulyan.vendingmachine;
 
-import org.blbulyandavbulyan.vendingmachine.domen.Chocolate;
-import org.blbulyandavbulyan.vendingmachine.domen.HotDrink;
 import org.blbulyandavbulyan.vendingmachine.domen.Product;
 import org.blbulyandavbulyan.vendingmachine.services.SimpleMoneyHolder;
 import org.blbulyandavbulyan.vendingmachine.services.VendingMachine;
@@ -15,10 +13,12 @@ import org.blbulyandavbulyan.vendingmachine.ui.console.ConsolePaymentTerminal;
 
 import java.util.Scanner;
 
+import static org.blbulyandavbulyan.vendingmachine.VendingMachineFiller.fill;
+
 /**
  * Данный класс является точкой входа в программу
  */
-public class Main {
+public class ConsoleMain {
     public static void main(String[] args) {
         VendingMachine vendingMachine = createVendingMachine();
         Product product = vendingMachine.buySomething();
@@ -31,9 +31,7 @@ public class Main {
         PaymentTerminal paymentTerminal = new ConsolePaymentTerminal(scanner, display);
         ItemSelector itemSelector = new ConsoleItemSelector(scanner, System.out);
         VendingMachine vendingMachine = new VendingMachine(display, moneyHolder, itemSelector, paymentTerminal);
-        vendingMachine.addProduct(new Chocolate(1L, "AlpenGold", 100, "black"));
-        vendingMachine.addProduct(new HotDrink(2L, "Coffee capucino", 50, 90));
-        vendingMachine.addProduct(new HotDrink(3L, "Tea", 25, 90));
+        fill(vendingMachine);
         return vendingMachine;
     }
 }
