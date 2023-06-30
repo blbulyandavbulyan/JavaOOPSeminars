@@ -2,6 +2,10 @@ package org.blbulyandavbulyan.vendingmachine.services;
 
 import org.blbulyandavbulyan.vendingmachine.domen.Product;
 import org.blbulyandavbulyan.vendingmachine.services.exceptions.ProductIsNotAvailableException;
+import org.blbulyandavbulyan.vendingmachine.services.interfaces.MoneyHolder;
+import org.blbulyandavbulyan.vendingmachine.services.interfaces.ui.Display;
+import org.blbulyandavbulyan.vendingmachine.services.interfaces.ui.ItemSelector;
+import org.blbulyandavbulyan.vendingmachine.services.interfaces.ui.PaymentTerminal;
 
 import java.util.Collection;
 

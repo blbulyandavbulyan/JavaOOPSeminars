@@ -1,6 +1,8 @@
 package org.blbulyandavbulyan.vendingmachine.services;
 
-public class SimpleMoneyHolder implements MoneyHolder{
+import org.blbulyandavbulyan.vendingmachine.services.interfaces.MoneyHolder;
+
+public class SimpleMoneyHolder implements MoneyHolder {
     private boolean isTransactionBegin = false;
     private int transactionalAmount = 0;
     private int commonAmount = 0;

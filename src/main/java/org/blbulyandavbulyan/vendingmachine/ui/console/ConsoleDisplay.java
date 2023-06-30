@@ -1,6 +1,6 @@
 package org.blbulyandavbulyan.vendingmachine.ui.console;
 
-import org.blbulyandavbulyan.vendingmachine.services.Display;
+import org.blbulyandavbulyan.vendingmachine.services.interfaces.ui.Display;
 
 import java.io.PrintStream;
 

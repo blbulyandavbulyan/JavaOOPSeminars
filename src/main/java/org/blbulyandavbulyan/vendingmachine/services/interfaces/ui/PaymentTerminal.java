@@ -1,4 +1,4 @@
-package org.blbulyandavbulyan.vendingmachine.services;
+package org.blbulyandavbulyan.vendingmachine.services.interfaces.ui;
 
 /**
  * Данный класс предназначен для запрашивания у пользователя суммы денег и возвращению ему сдачи

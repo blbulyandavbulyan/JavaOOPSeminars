@@ -1,4 +1,4 @@
-package org.blbulyandavbulyan.vendingmachine.services;
+package org.blbulyandavbulyan.vendingmachine.services.interfaces.ui;
 
 public interface Display {
     void displayMessage(String msg);

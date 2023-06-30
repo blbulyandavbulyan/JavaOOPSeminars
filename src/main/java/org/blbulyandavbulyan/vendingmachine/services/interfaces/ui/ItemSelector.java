@@ -1,4 +1,4 @@
-package org.blbulyandavbulyan.vendingmachine.services;
+package org.blbulyandavbulyan.vendingmachine.services.interfaces.ui;
 
 import org.blbulyandavbulyan.vendingmachine.domen.Product;
 
