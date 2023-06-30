@@ -1,4 +1,4 @@
-package services;
+package org.blbulyandavbulyan.vendingmachine.services;
 
 public class SimpleMoneyHolder implements MoneyHolder{
     private boolean isTransactionBegin = false;

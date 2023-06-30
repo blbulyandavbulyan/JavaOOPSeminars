@@ -1,7 +1,7 @@
-package ui.console;
+package org.blbulyandavbulyan.vendingmachine.ui.console;
 
-import services.Display;
-import services.PaymentTerminal;
+import org.blbulyandavbulyan.vendingmachine.services.Display;
+import org.blbulyandavbulyan.vendingmachine.services.PaymentTerminal;
 
 import java.util.Scanner;
 

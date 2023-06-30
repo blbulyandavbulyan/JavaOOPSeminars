@@ -1,7 +1,7 @@
-package ui.console;
+package org.blbulyandavbulyan.vendingmachine.ui.console;
 
-import domen.Product;
-import services.ItemSelector;
+import org.blbulyandavbulyan.vendingmachine.domen.Product;
+import org.blbulyandavbulyan.vendingmachine.services.ItemSelector;
 
 import java.io.PrintStream;
 import java.util.Collection;

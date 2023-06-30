@@ -1,6 +1,6 @@
-package services;
+package org.blbulyandavbulyan.vendingmachine.services;
 
-import domen.Product;
+import org.blbulyandavbulyan.vendingmachine.domen.Product;
 
 import java.util.Collection;
 

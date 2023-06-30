@@ -1,4 +1,4 @@
-package services;
+package org.blbulyandavbulyan.vendingmachine.services;
 
 /**
  * Данный класс предназначен для запрашивания у пользователя суммы денег и возвращению ему сдачи

@@ -1,4 +1,4 @@
-package services;
+package org.blbulyandavbulyan.vendingmachine.services;
 
 /**
  * Данный интерфейс описывает держатель денег с поддержкой транзакций

@@ -1,4 +1,4 @@
-package services.exceptions;
+package org.blbulyandavbulyan.vendingmachine.services.exceptions;
 
 public class ProductIsNotAvailableException extends RuntimeException{
     public ProductIsNotAvailableException(long productNumber){

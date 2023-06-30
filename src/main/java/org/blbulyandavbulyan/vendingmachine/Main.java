@@ -1,10 +1,12 @@
-import domen.Chocolate;
-import domen.HotDrink;
-import domen.Product;
-import services.*;
-import ui.console.ConsoleDisplay;
-import ui.console.ConsoleItemSelector;
-import ui.console.ConsolePaymentTerminal;
+package org.blbulyandavbulyan.vendingmachine;
+
+import org.blbulyandavbulyan.vendingmachine.domen.Chocolate;
+import org.blbulyandavbulyan.vendingmachine.domen.HotDrink;
+import org.blbulyandavbulyan.vendingmachine.domen.Product;
+import org.blbulyandavbulyan.vendingmachine.services.*;
+import org.blbulyandavbulyan.vendingmachine.ui.console.ConsoleDisplay;
+import org.blbulyandavbulyan.vendingmachine.ui.console.ConsoleItemSelector;
+import org.blbulyandavbulyan.vendingmachine.ui.console.ConsolePaymentTerminal;
 
 import java.util.Scanner;
 

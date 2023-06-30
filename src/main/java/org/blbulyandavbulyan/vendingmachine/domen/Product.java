@@ -1,4 +1,4 @@
-package domen;
+package org.blbulyandavbulyan.vendingmachine.domen;
 
 public abstract class Product{
     protected long id;

@@ -1,4 +1,4 @@
-package domen;
+package org.blbulyandavbulyan.vendingmachine.domen;
 
 public class Chocolate extends Product{
     private final String color;

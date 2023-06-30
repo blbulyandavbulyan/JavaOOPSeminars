@@ -1,4 +1,4 @@
-package ui.console;
+package org.blbulyandavbulyan.vendingmachine.ui.console;
 
 public interface ConsoleTerminal {
     void printError(String errorMsg);

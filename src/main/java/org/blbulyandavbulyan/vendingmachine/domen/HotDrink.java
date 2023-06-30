@@ -1,4 +1,4 @@
-package domen;
+package org.blbulyandavbulyan.vendingmachine.domen;
 
 public class HotDrink extends Product{
     private int temperature;

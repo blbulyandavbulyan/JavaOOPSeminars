@@ -1,7 +1,7 @@
-package services;
+package org.blbulyandavbulyan.vendingmachine.services;
 
-import domen.Product;
-import services.exceptions.ProductIsNotAvailableException;
+import org.blbulyandavbulyan.vendingmachine.domen.Product;
+import org.blbulyandavbulyan.vendingmachine.services.exceptions.ProductIsNotAvailableException;
 
 import java.util.Collection;
 
