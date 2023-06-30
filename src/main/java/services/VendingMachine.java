@@ -18,6 +18,13 @@ public class VendingMachine {
         this.paymentTerminal = paymentTerminal;
         itemHolder = new ItemHolder(products);
     }
+    public VendingMachine(Display display, MoneyHolder moneyHolder, ItemSelector itemSelector, PaymentTerminal paymentTerminal) {
+        this.display = display;
+        this.moneyHolder = moneyHolder;
+        this.itemSelector = itemSelector;
+        this.paymentTerminal = paymentTerminal;
+        itemHolder = new ItemHolder();
+    }
     public Product buySomething(){
         //даём выбрать продукт, смотреть можно, трогать нельзя
         long productId = itemSelector.select(itemHolder.getProducts());

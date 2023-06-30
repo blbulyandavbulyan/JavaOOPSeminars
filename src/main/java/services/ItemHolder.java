@@ -3,7 +3,10 @@ package services;
 import domen.Product;
 import services.exceptions.ProductIsNotAvailableException;
 
-import java.util.*;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * Данный класс предназначен для хранения продуктов
@@ -15,12 +18,19 @@ public class ItemHolder {
     private final Collection<Product> unmodifiableProducts;
 
     /**
+     * Создаёт хранилище не содержащее продукты
+     */
+    public ItemHolder() {
+        idToProduct = new HashMap<>();
+        unmodifiableProducts = Collections.unmodifiableCollection(idToProduct.values());//оборачиваем продукты в немодифицироваемое view над исходными значениями в map
+    }
+
+    /**
      * Создаёт держатель продуктов с заданными продуктами
      * @param products продукты которые нужно добавить
      */
     public ItemHolder(Collection<Product> products){
-        idToProduct = new HashMap<>();
-        unmodifiableProducts = Collections.unmodifiableCollection(idToProduct.values());//оборачиваем продукты в немодифицироваемое view над исходными значениями в map
+        this();
         products.forEach(this::add);
     }
 

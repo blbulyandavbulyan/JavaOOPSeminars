@@ -6,6 +6,6 @@ import java.util.Collection;
 
 public interface ItemSelector {
 
-     long select(Collection<Product> availableNumbers);
+     long select(Collection<Product> products);
 
 }
