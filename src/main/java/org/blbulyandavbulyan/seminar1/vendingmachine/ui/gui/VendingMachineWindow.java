@@ -1,8 +1,6 @@
 package org.blbulyandavbulyan.seminar1.vendingmachine.ui.gui;
 
-import org.blbulyandavbulyan.seminar1.vendingmachine.VendingMachineFiller;
 import org.blbulyandavbulyan.seminar1.vendingmachine.domen.Product;
-import org.blbulyandavbulyan.seminar1.vendingmachine.services.SimpleMoneyHolder;
 import org.blbulyandavbulyan.seminar1.vendingmachine.services.VendingMachine;
 
 import javax.swing.*;
@@ -72,13 +70,5 @@ public class VendingMachineWindow extends JFrame {
         controlPanel.add(buyButton);
         rootPanel.add(controlPanel);
         return rootPanel;
-    }
-
-    public static void main(String[] args) {
-        VendingMachine vendingMachine = new VendingMachine(new SimpleMoneyHolder());
-        VendingMachineFiller.fill(vendingMachine);
-        VendingMachineWindow vendingMachineWindow = new VendingMachineWindow(vendingMachine);
-        vendingMachineWindow.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        vendingMachineWindow.setVisible(true);
     }
 }
