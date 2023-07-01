@@ -20,7 +20,7 @@ public class VendingMachineWindow extends JFrame {
         productsModel = new DefaultListModel<>();
         productsModel.addAll(vendingMachine.getProducts());//добавляем в модель для списка все продукты из vendingMachine
         moneyField = createMoneyField();
-        moneyField.setValue(1L);//устанавливаем начально значение в 1 для поля с деньгами
+        moneyField.setValue(0);//устанавливаем начально значение в 1 для поля с деньгами
         productJList = new JList<>(productsModel);
         buyButton = new JButton("Купить");
         this.getContentPane().add(createRootPanel());
@@ -31,7 +31,7 @@ public class VendingMachineWindow extends JFrame {
         JOptionPane.showMessageDialog(this, message, caption, JOptionPane.INFORMATION_MESSAGE);
     }
     private void showErrorMessage(String message, String caption){
-        JOptionPane.showMessageDialog(this, message, caption, JOptionPane.INFORMATION_MESSAGE);
+        JOptionPane.showMessageDialog(this, message, caption, JOptionPane.ERROR_MESSAGE);
     }
     private int getEnteredPrice(){
         return (Integer) moneyField.getValue();
@@ -53,11 +53,16 @@ public class VendingMachineWindow extends JFrame {
                 Product selectedProduct = productJList.getSelectedValue();
                 int enteredPrice = getEnteredPrice();
                 if(selectedProduct.getPrice() < enteredPrice){//цена нашего продукта меньше введённой, можем купить
-                    Product product = vendingMachine.buy(selectedProduct.getId(), enteredPrice);//покупаем продукт
-                    showInformationMessage("Вы успешно купили %s".formatted(product.getName()), "Успешная покупка");
+                    int change = vendingMachine.buy(selectedProduct.getId(), enteredPrice);//покупаем продукт
+                    showInformationMessage("Вы успешно купили %s".formatted(selectedProduct.getName()), "Успешная покупка");
                     //а теперь нам надо убрать продукт из списка, где мы его отображаем
-                    productsModel.removeElement(product);//убираем продукт из списка
+                    productsModel.removeElement(selectedProduct);//убираем продукт из списка
+                    if(change != 0){
+                        showInformationMessage("Вам вернули сдачу " + change, "Возврат сдачи");
+                    }
+                    moneyField.setValue(change);
                 }
+                else showErrorMessage("У вас недостаточно средств!", "Ошибка покупки!");
             }
             else {
                 //сообщаем о том что нужно выбрать продукт
