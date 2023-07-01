@@ -13,8 +13,13 @@ import java.util.Map;
  *
  */
 public class ItemHolder {
-
+    /**
+     * Map из ID продукта в продукт
+     */
     private final Map<Long, Product> idToProduct;
+    /**
+     * Не модифицируемая коллекция продуктов, которая будет возвращаться через getProduct
+     */
     private final Collection<Product> unmodifiableProducts;
 
     /**
@@ -22,7 +27,7 @@ public class ItemHolder {
      */
     public ItemHolder() {
         idToProduct = new HashMap<>();
-        unmodifiableProducts = Collections.unmodifiableCollection(idToProduct.values());//оборачиваем продукты в немодифицироваемое view над исходными значениями в map
+        unmodifiableProducts = Collections.unmodifiableCollection(idToProduct.values());//оборачиваем продукты в не модифицируемое view над исходными значениями в map
     }
 
     /**
