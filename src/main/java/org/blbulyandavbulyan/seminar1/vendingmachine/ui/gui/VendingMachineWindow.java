@@ -10,11 +10,31 @@ import javax.swing.text.NumberFormatter;
 import java.awt.*;
 
 public class VendingMachineWindow extends JFrame {
+    /**
+     * Торговый автомат, которым управляет данное окно
+     */
     private final VendingMachine vendingMachine;
+    /**
+     * Кнопка покупки
+     */
     private final JButton buyButton;
+    /**
+     * Модель для списка с продуктами
+     */
     private final DefaultListModel<Product> productsModel;
+    /**
+     * Поле для денег
+     */
     private final JFormattedTextField moneyField;
+    /**
+     * Список с продуктами
+     */
     private final JList<Product> productJList;
+
+    /**
+     * Создаёт окно с заданным автоматом
+     * @param vendingMachine автомат, которым будет управлять данное окно
+     */
     public VendingMachineWindow(VendingMachine vendingMachine){
         this.vendingMachine = vendingMachine;
         productsModel = new DefaultListModel<>();
@@ -27,20 +47,38 @@ public class VendingMachineWindow extends JFrame {
         configureUI();
         this.pack();
     }
+
+    /**
+     * Метод показывает информационное сообщение с кнопкой ok
+     * @param message текст сообщения
+     * @param caption заголовок всплывающего окна
+     */
     private void showInformationMessage(String message, String caption){
         JOptionPane.showMessageDialog(this, message, caption, JOptionPane.INFORMATION_MESSAGE);
     }
+
+    /**
+     * Метод показывает сообщение об ошибке с кнопкой ok
+     * @param message текст сообщения
+     * @param caption заголовок всплывающего окна
+     */
     private void showErrorMessage(String message, String caption){
         JOptionPane.showMessageDialog(this, message, caption, JOptionPane.ERROR_MESSAGE);
     }
+
+    /**
+     * Метод получает введённую сумму денег из текстового поля
+     * @return сумму денег, которую ввёл пользовать
+     */
     private int getEnteredPrice(){
         return (Integer) moneyField.getValue();
     }
     private static JFormattedTextField createMoneyField(){
-        NumberFormatter numberFormatter = new NumberFormatter();
-        numberFormatter.setValueClass(Integer.class);
-        numberFormatter.setMinimum(1);
-        numberFormatter.setMaximum(Integer.MAX_VALUE);
+        NumberFormatter numberFormatter = new NumberFormatter();//эта штука нужна для текстового поля, чтобы оно могло отслеживать на корректность введённых данных
+        //в данном случае это задаёт что там будет число
+        numberFormatter.setValueClass(Integer.class);//задаём тип значения для формата
+        numberFormatter.setMinimum(0);//задаём минимальное значение
+        numberFormatter.setMaximum(Integer.MAX_VALUE);//максимальное значение
         numberFormatter.setAllowsInvalid(false);
         return new JFormattedTextField(numberFormatter);
     }
@@ -48,7 +86,7 @@ public class VendingMachineWindow extends JFrame {
         productJList.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);//делаем так чтобы в списке можно было выбрать только один продукт
         //добавляем обработчик для кнопки покупки
         buyButton.addActionListener(event->{
-            //
+            //сообщаем о том что нужно выбрать продукт
             if(!productJList.isSelectionEmpty()){//у нас что-то выбрано в списке
                 Product selectedProduct = productJList.getSelectedValue();
                 int enteredPrice = getEnteredPrice();
@@ -57,18 +95,14 @@ public class VendingMachineWindow extends JFrame {
                     showInformationMessage("Вы успешно купили %s".formatted(selectedProduct.getName()), "Успешная покупка");
                     //а теперь нам надо убрать продукт из списка, где мы его отображаем
                     productsModel.removeElement(selectedProduct);//убираем продукт из списка
-                    if(change != 0){
-                        showInformationMessage("Вам вернули сдачу " + change, "Возврат сдачи");
-                    }
+                    if(change != 0) showInformationMessage("Вам вернули сдачу " + change, "Возврат сдачи");
                     moneyField.setValue(change);
                 }
                 else showErrorMessage("У вас недостаточно средств!", "Ошибка покупки!");
             }
-            else {
-                //сообщаем о том что нужно выбрать продукт
-                showErrorMessage("Выберите продукт перед покупкой!", "Ошибка!");
-            }
+            else showErrorMessage("Выберите продукт перед покупкой!", "Ошибка!");
         });
+        //эта штука нам нужна для отслеживания изменений в нашем списке, и чтобы вовремя выключить управляющие компоненты, когда список пуст
         productsModel.addListDataListener(new ListDataListener() {
             private void enableIfNeeded(){
                 //это всё здесь нам нужно для того, чтобы выключить кнопку покупки и поле ввода денег если список пуст
