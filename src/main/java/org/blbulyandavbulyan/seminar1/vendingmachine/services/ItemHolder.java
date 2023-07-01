@@ -61,7 +61,7 @@ public class ItemHolder {
      */
     public Product release(long productId){
         if(isAvailable(productId)){
-            return idToProduct.get(productId);
+            return idToProduct.remove(productId);
         }
         else throw new ProductIsNotAvailableException(productId);
     }
