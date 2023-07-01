@@ -6,6 +6,9 @@ import org.blbulyandavbulyan.seminar1.vendingmachine.ui.gui.VendingMachineWindow
 
 import static javax.swing.WindowConstants.EXIT_ON_CLOSE;
 
+/**
+ * Данный класс является точкой входа в графическое приложение с торговым автоматом
+ */
 public class GuiMain {
     public static void main(String[] args) {
         VendingMachine vendingMachine = new VendingMachine(new SimpleMoneyHolder());
