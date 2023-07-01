@@ -1,7 +1,7 @@
-package org.blbulyandavbulyan.vendingmachine.services;
+package org.blbulyandavbulyan.seminar1.vendingmachine.services;
 
-import org.blbulyandavbulyan.vendingmachine.domen.Product;
-import org.blbulyandavbulyan.vendingmachine.services.exceptions.ProductIsNotAvailableException;
+import org.blbulyandavbulyan.seminar1.vendingmachine.domen.Product;
+import org.blbulyandavbulyan.seminar1.vendingmachine.services.exceptions.ProductIsNotAvailableException;
 
 import java.util.Collection;
 import java.util.Collections;

@@ -1,8 +1,8 @@
-package org.blbulyandavbulyan.vendingmachine;
+package org.blbulyandavbulyan.seminar1.vendingmachine;
 
-import org.blbulyandavbulyan.vendingmachine.domen.Chocolate;
-import org.blbulyandavbulyan.vendingmachine.domen.HotDrink;
-import org.blbulyandavbulyan.vendingmachine.services.VendingMachine;
+import org.blbulyandavbulyan.seminar1.vendingmachine.domen.Chocolate;
+import org.blbulyandavbulyan.seminar1.vendingmachine.domen.HotDrink;
+import org.blbulyandavbulyan.seminar1.vendingmachine.services.VendingMachine;
 
 public class VendingMachineFiller {
     public static void fill(VendingMachine vendingMachine){
