@@ -1,6 +1,6 @@
 package org.blbulyandavbulyan.seminar2.supermarket.domen;
 
-import org.blbulyandavbulyan.seminar2.supermarket.domen.exceptions.PromotionIsOver;
+import org.blbulyandavbulyan.seminar2.supermarket.domen.exceptions.PromotionIsOverException;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -38,7 +38,7 @@ public class PromotionClient extends Actor{
             countOfClientInAction.compute(actionName, (k, v)-> v == null ? 1 : v + 1);
         }
         //логика такая, если превышено допустимое количество клиентов по акции, то мы бросим исключение
-        else throw new PromotionIsOver(actionName, countOfClientInAction.get(actionName));
+        else throw new PromotionIsOverException(actionName, countOfClientInAction.get(actionName));
     }
     public int getClientID() {
         return clientID;
