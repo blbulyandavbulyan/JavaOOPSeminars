@@ -19,11 +19,6 @@ public class SpecialClient extends Actor{
         this.idVip = idVip;
     }
 
-    @Override
-    public String getName() {
-        return name;
-    }
-
     /**
      * Получает VIP ID клиента
      * @return VIP ID
