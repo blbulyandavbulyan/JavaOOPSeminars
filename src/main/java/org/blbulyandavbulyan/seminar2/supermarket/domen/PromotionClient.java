@@ -25,6 +25,14 @@ public class PromotionClient extends Actor{
      * Имя акции для текущего клиента
      */
     private final String actionName;
+
+    /**
+     * Создаёт экземпляр акционного клиента
+     * @param clientName имя клиента
+     * @param actionName имя акции
+     * @param clientID ИД клиента
+     * @throws PromotionIsOverException если превышено максимальное количество клиентов для акции с именем actionName
+     */
     public PromotionClient(String clientName, String actionName, int clientID) {
         super(clientName);
         this.clientID = clientID;
@@ -40,10 +48,17 @@ public class PromotionClient extends Actor{
         //логика такая, если превышено допустимое количество клиентов по акции, то мы бросим исключение
         else throw new PromotionIsOverException(actionName, countOfClientInAction.get(actionName));
     }
+
+    /**
+     * @return ID клиента
+     */
     public int getClientID() {
         return clientID;
     }
 
+    /**
+     * @return имя акции
+     */
     public String getActionName() {
         return actionName;
     }
