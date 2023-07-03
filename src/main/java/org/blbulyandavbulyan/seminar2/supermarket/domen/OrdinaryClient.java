@@ -11,7 +11,4 @@ public class OrdinaryClient extends Actor{
     public OrdinaryClient(String name) {
         super(name);
     }
-    public Actor getActor(){
-        return this;
-    }
 }
