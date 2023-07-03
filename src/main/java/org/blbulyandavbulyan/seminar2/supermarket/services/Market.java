@@ -13,7 +13,12 @@ public class Market implements IQueueBehavior, IMarketBehavior {
     private final List<Actor> queue;
     private final List<Actor> returnQueue;
     private final Logger logger;
-    public Market(Logger logger){
+
+    /**
+     * Создаёт экземпляр магазина с заданным логгером
+     * @param logger логгер, к которому данный магазин будет привязан
+     */
+    private Market(Logger logger){
         this.logger = logger;
         this.returnQueue = new ArrayList<>();
         queue = new ArrayList<>();
@@ -139,5 +144,12 @@ public class Market implements IQueueBehavior, IMarketBehavior {
             actor.setTakeOrder(true);
             logger.info(()->actor.getName() + " получил свой заказ");
         });
+    }
+
+    /**
+     * @return логгер, привязанный к данному магазину
+     */
+    public Logger getLogger() {
+        return logger;
     }
 }
