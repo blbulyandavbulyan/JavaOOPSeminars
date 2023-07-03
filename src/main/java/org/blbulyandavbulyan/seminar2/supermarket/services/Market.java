@@ -65,7 +65,8 @@ public class Market implements IQueueBehavior, IMarketBehavior {
     /**
      * Данный метод освобождает очередь для возврата товаров
      */
-    private void releaseFromReturnQueue() {
+    @Override
+    public void releaseFromReturnQueue() {
         Iterator<Actor> iterator = returnQueue.iterator();
         while (iterator.hasNext()){
             Actor actor = iterator.next();
@@ -89,7 +90,8 @@ public class Market implements IQueueBehavior, IMarketBehavior {
     /**
      * Данный метод отвечает за запрос возврата товара у пользователей, которые стоят в очереди на возврат
      */
-    private void returnOrders(){
+    @Override
+    public void returnOrders(){
         for(var actor : returnQueue){
             logger.info(()->actor.getName() + " начал процедуру возврата заказа");
             //идея в чём, пока данный метод не вернёт false, мы будем считать что данный клиент нуждается в том чтобы вернуть заказ

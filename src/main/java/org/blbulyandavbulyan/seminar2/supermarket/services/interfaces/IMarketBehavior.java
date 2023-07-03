@@ -21,7 +21,13 @@ public interface IMarketBehavior {
     void releaseFromMarket(List<Actor> actors);
 
     /**
+     * Возвращает заказы клиентам
+     */
+    void returnOrders();
+
+    /**
      * Управляющий и основной метод, отвечает за всю логику магазина
      */
     void update();
+
 }

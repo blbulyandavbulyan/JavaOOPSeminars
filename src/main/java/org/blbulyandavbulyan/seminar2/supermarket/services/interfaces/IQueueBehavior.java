@@ -7,6 +7,11 @@ import org.blbulyandavbulyan.seminar2.supermarket.domen.Actor;
  */
 public interface IQueueBehavior {
     /**
+     * Освобождает очередь на возврат товаров
+     */
+    void releaseFromReturnQueue();
+
+    /**
      * Принимает клиента в очередь
      * @param actor клиент, которого нужно принять
      */
