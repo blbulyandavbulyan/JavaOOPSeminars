@@ -34,6 +34,11 @@ abstract public class Actor implements IReturnOrder {
     public void returnOrder() {
         //это самая странная имплементация интерфейса которую я когда-либо делал
         //но поскольку в магазине же нет товаров, значит нам как бы и возвращать нечего
-        System.out.println("Вернул товар");
+        //будет пустой
+    }
+
+    @Override
+    public boolean isItNeededToReturnOrder() {
+        return false;
     }
 }
