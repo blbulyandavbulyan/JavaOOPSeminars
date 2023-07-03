@@ -49,7 +49,7 @@ public class Market implements IQueueBehavior, IMarketBehavior {
      */
     @Override
     public void update() {
-        takeOrder();
+        makeOrder();
         giveOrder();
         buildQueueForReturnFromBuyingQueue();
         releaseFromQueue();
@@ -123,7 +123,7 @@ public class Market implements IQueueBehavior, IMarketBehavior {
      * Данный метод просит людей в очереди сделать заказ
      */
     @Override
-    public void takeOrder() {
+    public void makeOrder() {
         queue.stream().filter(actor -> !actor.isMakeOrder()).forEach(actor -> {
             actor.setMakeOrder(true);
             logger.info(()->actor.getName() + " сделал свой заказ");
