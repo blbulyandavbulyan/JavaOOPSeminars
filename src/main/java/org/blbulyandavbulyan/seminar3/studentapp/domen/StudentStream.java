@@ -1,8 +1,6 @@
 package org.blbulyandavbulyan.seminar3.studentapp.domen;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Поток студентов<br>
@@ -23,5 +21,11 @@ public class StudentStream implements Iterable<StudentGroup>{
     }
     public void add(StudentGroup studentGroup){
         this.add(studentGroup);
+    }
+    public void sort(){
+        Collections.sort(groups);
+    }
+    public void sort(Comparator<StudentGroup> studentGroupComparator){
+        groups.sort(studentGroupComparator);
     }
 }
