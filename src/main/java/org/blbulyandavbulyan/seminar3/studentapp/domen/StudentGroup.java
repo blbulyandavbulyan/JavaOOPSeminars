@@ -4,7 +4,6 @@ import java.util.List;
 
 public class StudentGroup implements Comparable<StudentGroup>{
     private List<Student> group;
-    private int groupSize;
     private int groupId;
 
     public StudentGroup(List<Student> group, int groupId) {
