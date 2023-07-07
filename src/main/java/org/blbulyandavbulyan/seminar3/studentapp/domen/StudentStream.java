@@ -58,7 +58,7 @@ public class StudentStream implements Iterable<StudentGroup>{
     /**
      * Сортирует группы в потоке сначала по размеру группы, а потом по идентификатору
      */
-    public void sortByCountAndThanByGroupIdentifier(){
+    public void sortByGroupSizeAndThanByGroupIdentifier(){
         groups.sort(Comparator.comparing(StudentGroup::size).thenComparing(StudentGroup::getGroupId));
     }
     @Override
