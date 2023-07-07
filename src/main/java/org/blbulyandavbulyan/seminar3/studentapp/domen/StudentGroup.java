@@ -2,7 +2,7 @@ package org.blbulyandavbulyan.seminar3.studentapp.domen;
 
 import java.util.List;
 
-public class StudentGroup {
+public class StudentGroup implements Comparable<StudentGroup>{
     private List<Student> group;
     private int groupId;
 
@@ -25,5 +25,10 @@ public class StudentGroup {
 
     public void setGroupId(int groupId) {
         this.groupId = groupId;
+    }
+
+    @Override
+    public int compareTo(StudentGroup studentGroup) {
+        return Integer.compare(this.group.size(), studentGroup.group.size());
     }
 }
