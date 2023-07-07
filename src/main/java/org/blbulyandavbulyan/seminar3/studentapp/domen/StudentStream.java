@@ -1,6 +1,7 @@
 package org.blbulyandavbulyan.seminar3.studentapp.domen;
 
 import java.util.*;
+import java.util.stream.Collectors;
 
 /**
  * Поток студентов<br>
@@ -8,11 +9,13 @@ import java.util.*;
  */
 public class StudentStream implements Iterable<StudentGroup>{
     private List<StudentGroup> groups;
-    public StudentStream(List<StudentGroup> groups) {
+    private int number;
+    public StudentStream(List<StudentGroup> groups, int number) {
         this.groups = groups;
+        this.number = number;
     }
-    public StudentStream(){
-        this(new ArrayList<>());
+    public StudentStream(int number){
+        this(new ArrayList<>(), number);
     }
     @Override
     public Iterator<StudentGroup> iterator() {
@@ -20,12 +23,19 @@ public class StudentStream implements Iterable<StudentGroup>{
         return groups.iterator();
     }
     public void add(StudentGroup studentGroup){
-        this.add(studentGroup);
+        groups.add(studentGroup);
     }
     public void sort(){
         Collections.sort(groups);
     }
     public void sort(Comparator<StudentGroup> studentGroupComparator){
         groups.sort(studentGroupComparator);
+    }
+
+    @Override
+    public String toString() {
+        return "StudentStream{" + "number=" + number +
+                ", groups=" + groups.stream().map(StudentGroup::toString).collect(Collectors.joining("\n\t", "[\n\t", "\n]")) +
+                '}';
     }
 }
