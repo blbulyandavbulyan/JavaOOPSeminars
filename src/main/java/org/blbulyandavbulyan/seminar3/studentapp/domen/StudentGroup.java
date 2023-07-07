@@ -3,20 +3,20 @@ package org.blbulyandavbulyan.seminar3.studentapp.domen;
 import java.util.List;
 
 public class StudentGroup implements Comparable<StudentGroup>{
-    private List<Student> group;
+    private List<Student> students;
     private int groupId;
 
-    public StudentGroup(List<Student> group, int groupId) {
-        this.group = group;
+    public StudentGroup(List<Student> students, int groupId) {
+        this.students = students;
         this.groupId = groupId;
     }
 
     public List<Student> getGroup() {
-        return group;
+        return students;
     }
 
     public void setGroup(List<Student> group) {
-        this.group = group;
+        this.students = group;
     }
 
     public int getGroupId() {
@@ -26,18 +26,20 @@ public class StudentGroup implements Comparable<StudentGroup>{
     public void setGroupId(int groupId) {
         this.groupId = groupId;
     }
-
+    public int size(){
+        return students.size();
+    }
     @Override
     public int compareTo(StudentGroup studentGroup) {
-        return Integer.compare(this.group.size(), studentGroup.group.size());
+        return Integer.compare(this.students.size(), studentGroup.students.size());
     }
 
     @Override
     public String toString() {
         return "StudentGroup{" +
                 "groupId=" + groupId +
-                ", groupSize=" + group.size() +
-                ", students=" + group +
+                ", groupSize=" + students.size() +
+                ", students=" + students +
                 '}';
     }
 }
