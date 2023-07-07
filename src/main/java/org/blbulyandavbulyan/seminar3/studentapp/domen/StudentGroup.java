@@ -37,8 +37,8 @@ public class StudentGroup implements Comparable<StudentGroup>{
     public String toString() {
         return "StudentGroup{" +
                 "groupId=" + groupId +
-                ", groupSize=" + groupSize +
-                ", group=" + group +
+                ", groupSize=" + group.size() +
+                ", students=" + group +
                 '}';
     }
 }
