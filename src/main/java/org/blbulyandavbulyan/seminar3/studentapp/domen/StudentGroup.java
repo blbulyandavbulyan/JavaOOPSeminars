@@ -4,6 +4,7 @@ import java.util.List;
 
 public class StudentGroup implements Comparable<StudentGroup>{
     private List<Student> group;
+    private int groupSize;
     private int groupId;
 
     public StudentGroup(List<Student> group, int groupId) {
@@ -30,5 +31,14 @@ public class StudentGroup implements Comparable<StudentGroup>{
     @Override
     public int compareTo(StudentGroup studentGroup) {
         return Integer.compare(this.group.size(), studentGroup.group.size());
+    }
+
+    @Override
+    public String toString() {
+        return "StudentGroup{" +
+                "groupId=" + groupId +
+                ", groupSize=" + groupSize +
+                ", group=" + group +
+                '}';
     }
 }
