@@ -10,7 +10,7 @@ public class StudentGroup implements Comparable<StudentGroup>{
     /**
      * Список студентов, состоящих в данной группе
      */
-    private List<Student> students;
+    private final List<Student> students;
     /**
      * Идентификатор группы
      */
