@@ -1,9 +1,9 @@
 package org.blbulyandavbulyan.seminar3.studentapp.domen;
-
+import org.blbulyandavbulyan.seminar3.studentapp.domen.protypes.PersonPrototype;
 /**
  * Предоставляет человека, у которого есть возраст и имя
  */
-public class PersonPrototype extends org.blbulyandavbulyan.seminar3.studentapp.domen.protypes.PersonPrototype<String, Integer> {
+public class Person extends PersonPrototype<String, Integer> {
 
     /**
      * Создаёт экземпляр человека с переданным возрастом и именем
@@ -11,7 +11,7 @@ public class PersonPrototype extends org.blbulyandavbulyan.seminar3.studentapp.d
      * @param age  возраст человека
      * @param name имя человека
      */
-    public PersonPrototype(Integer age, String name) {
+    public Person(Integer age, String name) {
         super(age, name);
     }
 }
