@@ -4,7 +4,7 @@ import java.util.*;
 import java.util.stream.Collectors;
 
 /**
- * Поток студентов<br>
+ * Поток параметризованных студентов из параметризованных групп студентов<br>
  * <b>Этот класс не имеет ничего общего с {@link java.util.stream.Stream}!</b>
  * @param <GT> тип групп, которые будут храниться в данном потоке
  */
@@ -42,22 +42,22 @@ public class StudentStreamPrototype<GT extends StudentGroupPrototype<?>> impleme
     }
 
     /**
-     * Добавляет группу в поток
-     * @param studentGroup группа, которую нужно добавить
+     * Добавляет параметризованную группу в поток
+     * @param studentGroup параметризованная группа, которую нужно добавить
      */
     public void add(GT studentGroup){
         groups.add(studentGroup);
     }
 
     /**
-     * Сортирует группы в потоке используя стандартный компаратор в группе
+     * Сортирует параметризованные группы в потоке используя стандартный компаратор в группе
      */
     public void sort(){
         Collections.sort(groups);
     }
 
     /**
-     * Сортирует группы в потоке сначала по размеру группы, а потом по идентификатору
+     * Сортирует параметризованные группы в потоке сначала по размеру группы, а потом по идентификатору
      */
     public void sortByGroupSizeAndThanByGroupIdentifier(){
         groups.sort(Comparator.comparing(GT::size).thenComparing(StudentGroupPrototype::getGroupId));

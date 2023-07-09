@@ -4,12 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Предоставляет группу студентов
- * @param <T> тип студента, который будет хранится в данной группе
+ * Предоставляет группу параметризованных студентов
+ * @param <T> тип студента, который будет храниться в данной группе
  */
 public class StudentGroupPrototype<T extends StudentPrototype<?, ?, ?>> implements Comparable<StudentGroupPrototype<T>>{
     /**
-     * Список студентов, состоящих в данной группе
+     * Список параметризованных студентов, состоящих в данной группе
      */
     private final List<T> students;
     /**
@@ -19,7 +19,7 @@ public class StudentGroupPrototype<T extends StudentPrototype<?, ?, ?>> implemen
 
     /**
      * Создаёт экземпляр группы с заданными студентами и идентификатором
-     * @param students студенты, которые будут включены в данную группу
+     * @param students параметризованные студенты, которые будут включены в данную группу
      * @param groupId идентификатор данной группы
      */
     public StudentGroupPrototype(List<T> students, int groupId) {
@@ -37,8 +37,8 @@ public class StudentGroupPrototype<T extends StudentPrototype<?, ?, ?>> implemen
     }
 
     /**
-     * Добавляет студента в группе
-     * @param student студент, которого нужно добавить
+     * Добавляет параметризованного студента в группу
+     * @param student параметризованный студент, которого нужно добавить
      */
     public void add(T student){
         students.add(student);
