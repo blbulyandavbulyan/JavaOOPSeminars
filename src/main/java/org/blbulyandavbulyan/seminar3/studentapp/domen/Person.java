@@ -14,6 +14,6 @@ public class Person extends PersonPrototype<String, Integer> {
      * @param name имя человека
      */
     public Person(Integer age, String name) {
-        super(age, name);
+        super(name, age);
     }
 }

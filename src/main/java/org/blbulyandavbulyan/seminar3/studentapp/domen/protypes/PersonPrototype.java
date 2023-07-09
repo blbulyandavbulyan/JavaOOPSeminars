@@ -17,10 +17,11 @@ public class PersonPrototype<NT, AT extends Number>{
 
     /**
      * Создаёт экземпляр человека с переданным возрастом и именем
-     * @param age возраст человека
+     *
      * @param name имя человека
+     * @param age  возраст человека
      */
-    public PersonPrototype(AT age, NT name) {
+    public PersonPrototype(NT name, AT age) {
         this.age = age;
         this.name = name;
     }

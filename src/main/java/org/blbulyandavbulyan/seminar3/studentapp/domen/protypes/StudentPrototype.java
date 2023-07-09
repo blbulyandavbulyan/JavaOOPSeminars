@@ -20,7 +20,7 @@ public class StudentPrototype<NT, AT extends Number, IT> extends PersonPrototype
      * @param id ИД студента
      */
     public StudentPrototype(AT age, NT name, IT id) {
-        super(age, name);
+        super(name, age);
         this.id = id;
     }
 
