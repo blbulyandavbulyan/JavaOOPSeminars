@@ -40,9 +40,9 @@ public class Main {
      * @return созданный и заполненный поток студентов
      */
     public static StudentStream createStudentStream(){
-        StudentGroup group1 = new StudentGroup(List.of(new Student(19, "Георгий", 1), new Student(20, "Борис", 2), new Student(20, "Анатолий", 3)), 1);
-        StudentGroup group2 = new StudentGroup(List.of(new Student(20, "Андрей", 4), new Student(21, "Евгений", 5)), 2);
-        StudentGroup group3 = new StudentGroup(List.of(new Student(20, "Алексей", 6), new Student(21, "Эдуард", 7)), 3);
+        StudentGroup group1 = new StudentGroup(List.of(new Student("Георгий", 19, 1), new Student("Борис", 20, 2), new Student("Анатолий", 20, 3)), 1);
+        StudentGroup group2 = new StudentGroup(List.of(new Student("Андрей", 20, 4), new Student("Евгений", 21, 5)), 2);
+        StudentGroup group3 = new StudentGroup(List.of(new Student("Алексей", 20, 6), new Student("Эдуард", 21, 7)), 3);
         StudentStream studentStream = new StudentStream(1);
         studentStream.add(group2);
         studentStream.add(group1);
