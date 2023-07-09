@@ -1,7 +1,7 @@
 package org.blbulyandavbulyan.seminar3.studentapp.domen.protypes;
 
 
-public class GenericStudent<NT, AT extends Number, IT> extends GenericPerson<NT, AT> {
+public class StudentPrototype<NT, AT extends Number, IT> extends PersonPrototype<NT, AT> {
     /**
      * ИД студента
      */
@@ -13,7 +13,7 @@ public class GenericStudent<NT, AT extends Number, IT> extends GenericPerson<NT,
      * @param name имя студента
      * @param id ИД студента
      */
-    public GenericStudent(AT age, NT name, IT id) {
+    public StudentPrototype(AT age, NT name, IT id) {
         super(age, name);
         this.id = id;
     }

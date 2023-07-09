@@ -1,11 +1,11 @@
 package org.blbulyandavbulyan.seminar3.studentapp.domen;
 
-import org.blbulyandavbulyan.seminar3.studentapp.domen.protypes.GenericStudent;
+import org.blbulyandavbulyan.seminar3.studentapp.domen.protypes.StudentPrototype;
 
 /**
  * Предоставляет студента, наследника человека
  */
-public class Student extends GenericStudent<String, Integer, Integer> {
+public class Student extends StudentPrototype<String, Integer, Integer> {
 
     /**
      * Создаёт экземпляр человека с переданным возрастом и именем

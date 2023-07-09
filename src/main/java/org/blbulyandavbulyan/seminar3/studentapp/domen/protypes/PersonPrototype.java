@@ -5,7 +5,7 @@ package org.blbulyandavbulyan.seminar3.studentapp.domen.protypes;
  * @param <NT>
  * @param <AT>
  */
-public class GenericPerson <NT, AT extends Number>{
+public class PersonPrototype<NT, AT extends Number>{
     /**
      * Возраст человека
      */
@@ -20,7 +20,7 @@ public class GenericPerson <NT, AT extends Number>{
      * @param age возраст человека
      * @param name имя человека
      */
-    public GenericPerson(AT age, NT name) {
+    public PersonPrototype(AT age, NT name) {
         this.age = age;
         this.name = name;
     }

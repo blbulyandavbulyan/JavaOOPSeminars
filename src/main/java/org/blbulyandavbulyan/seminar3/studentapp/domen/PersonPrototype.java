@@ -1,11 +1,9 @@
 package org.blbulyandavbulyan.seminar3.studentapp.domen;
 
-import org.blbulyandavbulyan.seminar3.studentapp.domen.protypes.GenericPerson;
-
 /**
  * Предоставляет человека, у которого есть возраст и имя
  */
-public class Person extends GenericPerson<String, Integer> {
+public class PersonPrototype extends org.blbulyandavbulyan.seminar3.studentapp.domen.protypes.PersonPrototype<String, Integer> {
 
     /**
      * Создаёт экземпляр человека с переданным возрастом и именем
@@ -13,7 +11,7 @@ public class Person extends GenericPerson<String, Integer> {
      * @param age  возраст человека
      * @param name имя человека
      */
-    public Person(Integer age, String name) {
+    public PersonPrototype(Integer age, String name) {
         super(age, name);
     }
 }
