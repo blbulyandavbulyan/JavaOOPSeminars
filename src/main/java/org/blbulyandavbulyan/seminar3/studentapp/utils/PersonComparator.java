@@ -37,8 +37,9 @@ public class PersonComparator<NT extends Comparable<NT>, AT extends Number & Com
      * @param <NT> тип имени в {@link PersonPrototype}
      * @param <R> сам тип класса {@link PersonPrototype}
      */
+    @SuppressWarnings("unused")//специально подавляю предупреждение о неиспользуемом параметре, я лучше знаю что мне надо
     public static <AT extends Number & Comparable<AT>, NT extends Comparable<NT>, R extends PersonPrototype<NT, AT>> PersonComparator<NT, AT, R> of(Class<R> personPrototypeClass){
-        //несмотря на то, что параметр personPrototype здесь не используется, но он позволяет мне не указывать кучу остальных generic параметров, т.к. они выводятся автоматически компилятором
+        //Несмотря на то, что параметр personPrototype здесь не используется, но он позволяет мне не указывать кучу остальных generic параметров, т.к. они выводятся автоматически компилятором
         return new PersonComparator<>();
     }
 }
