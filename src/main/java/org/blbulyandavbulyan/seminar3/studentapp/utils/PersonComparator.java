@@ -6,7 +6,8 @@ import java.util.Comparator;
 
 /**
  * Данный компаратор сравнивает generics Person с таким же, сначала сравнивает по имени, а затем по возрасту<br>
- * Для более удобного создания используете метод {@link PersonComparator#of(Class)}
+ * Для более удобного создания используете метод {@link PersonComparator#of(Class)}:<br>
+ * Пример использования: PersonComparator.of(Person.class)
  * @param <NT> тип имени в PersonPrototype
  * @param <AT> тип возраста в PersonPrototype(должен быть Number и Comparable)
  * @param <T> конкретный тип, который будет сравнивать данный компаратор, должен быть наследником PersonPrototype
