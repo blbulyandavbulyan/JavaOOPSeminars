@@ -1,4 +1,4 @@
-package org.blbulyandavbulyan.seminar3.studentapp.domen;
+package org.blbulyandavbulyan.seminar3.studentapp.domen.protypes;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
  * <b>Этот класс не имеет ничего общего с {@link java.util.stream.Stream}!</b>
  * @param <GT> тип групп, которые будут храниться в данном потоке
  */
-public class StudentStream<GT extends StudentGroup<?>> implements Iterable<GT>{
+public class StudentStreamPrototype<GT extends StudentGroupPrototype<?>> implements Iterable<GT>{
     /**
      * Группы, которые состоят в данном потоке
      */
@@ -23,7 +23,7 @@ public class StudentStream<GT extends StudentGroup<?>> implements Iterable<GT>{
      * @param groups группы, которые будут включены в данный поток
      * @param streamNumber номер потока
      */
-    public StudentStream(List<GT> groups, int streamNumber) {
+    public StudentStreamPrototype(List<GT> groups, int streamNumber) {
         this.groups = groups;
         this.streamNumber = streamNumber;
     }
@@ -32,7 +32,7 @@ public class StudentStream<GT extends StudentGroup<?>> implements Iterable<GT>{
      * Создаёт пустой поток с заданным номером
      * @param streamNumber номер потока
      */
-    public StudentStream(int streamNumber){
+    public StudentStreamPrototype(int streamNumber){
         this(new ArrayList<>(), streamNumber);
     }
     @Override
@@ -60,12 +60,12 @@ public class StudentStream<GT extends StudentGroup<?>> implements Iterable<GT>{
      * Сортирует группы в потоке сначала по размеру группы, а потом по идентификатору
      */
     public void sortByGroupSizeAndThanByGroupIdentifier(){
-        groups.sort(Comparator.comparing(GT::size).thenComparing(StudentGroup::getGroupId));
+        groups.sort(Comparator.comparing(GT::size).thenComparing(StudentGroupPrototype::getGroupId));
     }
     @Override
     public String toString() {
         return "StudentStream{" + "number=" + streamNumber +
-                ", groups=" + groups.stream().map(StudentGroup::toString).collect(Collectors.joining("\n\t", "[\n\t", "\n]")) +
+                ", groups=" + groups.stream().map(StudentGroupPrototype::toString).collect(Collectors.joining("\n\t", "[\n\t", "\n]")) +
                 '}';
     }
 }

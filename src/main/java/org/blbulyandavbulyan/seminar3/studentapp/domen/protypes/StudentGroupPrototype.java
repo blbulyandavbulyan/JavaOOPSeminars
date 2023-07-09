@@ -1,6 +1,4 @@
-package org.blbulyandavbulyan.seminar3.studentapp.domen;
-
-import org.blbulyandavbulyan.seminar3.studentapp.domen.protypes.StudentPrototype;
+package org.blbulyandavbulyan.seminar3.studentapp.domen.protypes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -9,7 +7,7 @@ import java.util.List;
  * Предоставляет группу студентов
  * @param <T> тип студента, который будет хранится в данной группе
  */
-public class StudentGroup<T extends StudentPrototype<?, ?, ?>> implements Comparable<StudentGroup<T>>{
+public class StudentGroupPrototype<T extends StudentPrototype<?, ?, ?>> implements Comparable<StudentGroupPrototype<T>>{
     /**
      * Список студентов, состоящих в данной группе
      */
@@ -24,7 +22,7 @@ public class StudentGroup<T extends StudentPrototype<?, ?, ?>> implements Compar
      * @param students студенты, которые будут включены в данную группу
      * @param groupId идентификатор данной группы
      */
-    public StudentGroup(List<T> students, int groupId) {
+    public StudentGroupPrototype(List<T> students, int groupId) {
         this.students = new ArrayList<>(students);
         this.groupId = groupId;
     }
@@ -33,7 +31,7 @@ public class StudentGroup<T extends StudentPrototype<?, ?, ?>> implements Compar
      * Создаёт пустую группу с заданным идентификатором
      * @param groupId идентификатор данной группы
      */
-    public StudentGroup(int groupId){
+    public StudentGroupPrototype(int groupId){
         this.groupId = groupId;
         this.students = new ArrayList<>();
     }
@@ -69,8 +67,8 @@ public class StudentGroup<T extends StudentPrototype<?, ?, ?>> implements Compar
         return students.size();
     }
     @Override
-    public int compareTo(StudentGroup<T> studentGroup) {
-        return Integer.compare(this.students.size(), studentGroup.students.size());
+    public int compareTo(StudentGroupPrototype<T> studentGroupPrototype) {
+        return Integer.compare(this.students.size(), studentGroupPrototype.students.size());
     }
 
     @Override
