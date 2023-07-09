@@ -11,7 +11,7 @@ import java.util.List;
  */
 public class Main {
     public static void main(String[] args) {
-        StudentStream<?> studentStream = createStudentStream();
+        StudentStream studentStream = createStudentStream();
         //печатаем через toString весь studentStream
         System.out.println("Не отсортировано:");
         System.out.println(studentStream);
@@ -29,8 +29,8 @@ public class Main {
      * Печатает studentStream используя цикл for
      * @param studentStream поток студентов, который нужно напечатать
      */
-    public static <GT extends StudentGroup<?>, ST extends StudentStream<GT>>void printStudentStream(ST studentStream){
-        for (GT sg : studentStream){
+    public static void printStudentStream(StudentStream studentStream){
+        for (StudentGroup sg : studentStream){
             System.out.println(sg);
         }
     }
@@ -39,11 +39,11 @@ public class Main {
      * Создаёт поток студентов и наполняет его данными
      * @return созданный и заполненный поток студентов
      */
-    public static StudentStream<?> createStudentStream(){
-        StudentGroup<Student> group1 = new StudentGroup<>(List.of(new Student(19, "Георгий", 1), new Student(20, "Борис", 2), new Student(20, "Анатолий", 3)), 1);
-        StudentGroup<Student> group2 = new StudentGroup<>(List.of(new Student(20, "Андрей", 4), new Student(21, "Евгений", 5)), 2);
-        StudentGroup<Student> group3 = new StudentGroup<>(List.of(new Student(20, "Алексей", 6), new Student(21, "Эдуард", 7)), 3);
-        StudentStream<StudentGroup<Student>> studentStream = new StudentStream<>(1);
+    public static StudentStream createStudentStream(){
+        StudentGroup group1 = new StudentGroup(List.of(new Student(19, "Георгий", 1), new Student(20, "Борис", 2), new Student(20, "Анатолий", 3)), 1);
+        StudentGroup group2 = new StudentGroup(List.of(new Student(20, "Андрей", 4), new Student(21, "Евгений", 5)), 2);
+        StudentGroup group3 = new StudentGroup(List.of(new Student(20, "Алексей", 6), new Student(21, "Эдуард", 7)), 3);
+        StudentStream studentStream = new StudentStream(1);
         studentStream.add(group2);
         studentStream.add(group1);
         studentStream.add(group3);
