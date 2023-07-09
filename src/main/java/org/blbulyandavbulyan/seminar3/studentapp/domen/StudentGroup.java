@@ -7,6 +7,7 @@ import java.util.List;
 
 /**
  * Предоставляет группу студентов
+ * @param <T> тип студента, который будет хранится в данной группе
  */
 public class StudentGroup<T extends StudentPrototype<?, ?, ?>> implements Comparable<StudentGroup<T>>{
     /**

@@ -1,5 +1,11 @@
 package org.blbulyandavbulyan.seminar3.studentapp.domen.protypes;
 
+/**
+ * Предоставляет шаблонизированного студента
+ * @param <NT> тип имени(такой же будет и в родителе)
+ * @param <AT> тип возраста(такой же будет и в родителе)
+ * @param <IT> тип ИД
+ */
 
 public class StudentPrototype<NT, AT extends Number, IT> extends PersonPrototype<NT, AT> {
     /**

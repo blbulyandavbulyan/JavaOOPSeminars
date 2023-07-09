@@ -2,8 +2,8 @@ package org.blbulyandavbulyan.seminar3.studentapp.domen.protypes;
 
 /**
  * Предоставляет шаблонизированного человека
- * @param <NT>
- * @param <AT>
+ * @param <NT> тип имени
+ * @param <AT> тип возраста
  */
 public class PersonPrototype<NT, AT extends Number>{
     /**

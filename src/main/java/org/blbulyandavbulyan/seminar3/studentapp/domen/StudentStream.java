@@ -6,6 +6,7 @@ import java.util.stream.Collectors;
 /**
  * Поток студентов<br>
  * <b>Этот класс не имеет ничего общего с {@link java.util.stream.Stream}!</b>
+ * @param <GT> тип групп, которые будут храниться в данном потоке
  */
 public class StudentStream<GT extends StudentGroup<?>> implements Iterable<GT>{
     /**

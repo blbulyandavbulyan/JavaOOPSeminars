@@ -3,7 +3,10 @@ package org.blbulyandavbulyan.seminar3.studentapp.domen;
 import org.blbulyandavbulyan.seminar3.studentapp.domen.protypes.StudentPrototype;
 
 /**
- * Предоставляет студента, наследника человека
+ * Предоставляет студента<br>
+ * Тип имени - строка<br>
+ * Тип возраста - Integer<br>
+ * Тип ид - Integer<br>
  */
 public class Student extends StudentPrototype<String, Integer, Integer> {
 
