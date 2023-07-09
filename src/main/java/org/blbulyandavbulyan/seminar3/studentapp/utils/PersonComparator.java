@@ -7,7 +7,7 @@ import java.util.Comparator;
 /**
  * Данный компаратор сравнивает generics Person с таким же, сначала сравнивает по имени, а затем по возрасту
  * @param <NT> тип имени в PersonPrototype
- * @param <AT> тип возраста в PersonPrototype
+ * @param <AT> тип возраста в PersonPrototype(должен быть Number и Comparable)
  * @param <T> конкретный тип, который будет сравнивать данный компаратор, должен быть наследником PersonPrototype
  */
 public class PersonComparator<NT extends Comparable<NT>, AT extends Number & Comparable<AT>, T extends PersonPrototype<NT, AT>> implements Comparator<T> {
