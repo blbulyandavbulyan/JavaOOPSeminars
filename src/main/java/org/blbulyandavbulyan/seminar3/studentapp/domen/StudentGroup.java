@@ -1,16 +1,18 @@
 package org.blbulyandavbulyan.seminar3.studentapp.domen;
 
+import org.blbulyandavbulyan.seminar3.studentapp.domen.protypes.StudentPrototype;
+
 import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Предоставляет группу студентов
  */
-public class StudentGroup implements Comparable<StudentGroup>{
+public class StudentGroup<T extends StudentPrototype<?, ?, ?>> implements Comparable<StudentGroup<T>>{
     /**
      * Список студентов, состоящих в данной группе
      */
-    private final List<Student> students;
+    private final List<T> students;
     /**
      * Идентификатор группы
      */
@@ -21,7 +23,7 @@ public class StudentGroup implements Comparable<StudentGroup>{
      * @param students студенты, которые будут включены в данную группу
      * @param groupId идентификатор данной группы
      */
-    public StudentGroup(List<Student> students, int groupId) {
+    public StudentGroup(List<T> students, int groupId) {
         this.students = new ArrayList<>(students);
         this.groupId = groupId;
     }
@@ -39,7 +41,7 @@ public class StudentGroup implements Comparable<StudentGroup>{
      * Добавляет студента в группе
      * @param student студент, которого нужно добавить
      */
-    public void add(Student student){
+    public void add(T student){
         students.add(student);
     }
 
@@ -66,7 +68,7 @@ public class StudentGroup implements Comparable<StudentGroup>{
         return students.size();
     }
     @Override
-    public int compareTo(StudentGroup studentGroup) {
+    public int compareTo(StudentGroup<T> studentGroup) {
         return Integer.compare(this.students.size(), studentGroup.students.size());
     }
 

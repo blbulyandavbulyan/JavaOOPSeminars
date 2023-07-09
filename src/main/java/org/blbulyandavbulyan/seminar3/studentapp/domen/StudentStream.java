@@ -7,11 +7,11 @@ import java.util.stream.Collectors;
  * Поток студентов<br>
  * <b>Этот класс не имеет ничего общего с {@link java.util.stream.Stream}!</b>
  */
-public class StudentStream implements Iterable<StudentGroup>{
+public class StudentStream<GT extends StudentGroup<?>> implements Iterable<GT>{
     /**
      * Группы, которые состоят в данном потоке
      */
-    private final List<StudentGroup> groups;
+    private final List<GT> groups;
     /**
      * Номер потока
      */
@@ -22,7 +22,7 @@ public class StudentStream implements Iterable<StudentGroup>{
      * @param groups группы, которые будут включены в данный поток
      * @param streamNumber номер потока
      */
-    public StudentStream(List<StudentGroup> groups, int streamNumber) {
+    public StudentStream(List<GT> groups, int streamNumber) {
         this.groups = groups;
         this.streamNumber = streamNumber;
     }
@@ -35,8 +35,8 @@ public class StudentStream implements Iterable<StudentGroup>{
         this(new ArrayList<>(), streamNumber);
     }
     @Override
-    public Iterator<StudentGroup> iterator() {
-        //поскольку в списве уже и так есть итератор, и его просто верну отсюда
+    public Iterator<GT> iterator() {
+        //поскольку в списке уже и так есть итератор, и его просто верну отсюда
         return groups.iterator();
     }
 
@@ -44,7 +44,7 @@ public class StudentStream implements Iterable<StudentGroup>{
      * Добавляет группу в поток
      * @param studentGroup группа, которую нужно добавить
      */
-    public void add(StudentGroup studentGroup){
+    public void add(GT studentGroup){
         groups.add(studentGroup);
     }
 
@@ -59,7 +59,7 @@ public class StudentStream implements Iterable<StudentGroup>{
      * Сортирует группы в потоке сначала по размеру группы, а потом по идентификатору
      */
     public void sortByGroupSizeAndThanByGroupIdentifier(){
-        groups.sort(Comparator.comparing(StudentGroup::size).thenComparing(StudentGroup::getGroupId));
+        groups.sort(Comparator.comparing(GT::size).thenComparing(StudentGroup::getGroupId));
     }
     @Override
     public String toString() {
