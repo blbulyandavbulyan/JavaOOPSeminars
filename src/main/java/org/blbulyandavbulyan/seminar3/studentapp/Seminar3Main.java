@@ -9,7 +9,7 @@ import java.util.List;
 /**
  * Класс содержащий точку входа в приложение
  */
-public class Main {
+public class Seminar3Main {
     public static void main(String[] args) {
         StudentStream studentStream = createStudentStream();
         //печатаем через toString весь studentStream
