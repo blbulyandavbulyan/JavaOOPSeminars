@@ -4,19 +4,22 @@ import org.blbulyandavbulyan.seminar3.studentapp.domen.Student;
 import org.blbulyandavbulyan.seminar3.studentapp.utils.PersonComparator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class StudentService implements IPersonService<Student> {
     private int count;
     private final List<Student> students;
+    private final List<Student> unmodifiableStudents;
 
     public StudentService() {
         this.students = new ArrayList<>();
+        unmodifiableStudents = Collections.unmodifiableList(students);
     }
 
     @Override
     public List<Student> getAll() {
-        return students;
+        return unmodifiableStudents;
     }
 
     @Override
