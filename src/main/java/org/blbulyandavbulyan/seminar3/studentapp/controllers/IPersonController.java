@@ -1,4 +1,4 @@
-package org.blbulyandavbulyan.seminar3.controllers;
+package org.blbulyandavbulyan.seminar3.studentapp.controllers;
 
 import org.blbulyandavbulyan.seminar3.studentapp.domen.protypes.PersonPrototype;
 
