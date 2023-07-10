@@ -25,4 +25,13 @@ public class TeacherPrototype<NT, AT extends Number, DT> extends PersonPrototype
     public DT getAcadDegree() {
         return acadDegree;
     }
+
+    @Override
+    public String toString() {
+        return "TeacherPrototype{" +
+                "name=" + name +
+                ", age=" + age +
+                ", acadDegree=" + acadDegree +
+                '}';
+    }
 }
