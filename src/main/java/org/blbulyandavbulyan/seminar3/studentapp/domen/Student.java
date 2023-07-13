@@ -19,4 +19,8 @@ public class Student extends StudentPrototype<String, Integer, Integer> {
     public Student(String name, Integer age, Integer id) {
         super(age, name, id);
     }
+
+    public Student(String name, int age) {
+        this(name, age, null);
+    }
 }
