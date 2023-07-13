@@ -30,15 +30,15 @@ public class Controller {
 
     public void deleteStudent(){
         var students = iModel.findAll();
-        Student studentForDelete = iView.selectStudentForDelete(students);
+        Student studentForDelete = iView.selectStudentForDelete();
         if(studentForDelete != null)
             iModel.delete(studentForDelete);
     }
     public void updateStudent(){
-        var students = iModel.findAll();
-        Student studentForUpdate = iView.selectStudentForUpdate(students);
+        Student studentForUpdate = iView.selectStudentForUpdate();
         if(studentForUpdate != null)
             iModel.update(studentForUpdate);
+
     }
     public void addStudent(){
         Student student = iView.getStudentForAdd();
