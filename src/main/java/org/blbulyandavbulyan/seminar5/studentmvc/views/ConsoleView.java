@@ -28,19 +28,21 @@ public class ConsoleView implements IView {
 
     @Override
     public void updateView(Collection<Student> students) {
-        ps.println("Результат: ");
+        ps.println(rb.getString("messages.result"));
         displayStudents(students);
     }
 
     @Override
     public Student selectStudentForDelete(Collection<Student> students) {
-        ps.println("Выберите из списка студента для удаления: ");
+        ps.println(rb.getString("questions.select_student_for_deleting"));
         displayStudents(students);
-        ps.print("Введите ИД студента для удаления: ");
+        ps.print(rb.getString("questions.input_student_id_for_deleting"));
         int idForDelete = scanner.nextInt();
         while (true){
             try {
-                return students.stream().filter(student -> student.getId().equals(idForDelete)).findFirst().orElseThrow(() -> new IllegalArgumentException("Выв ввели ИД которого нет в списке!"));
+                return students.stream()
+                        .filter(student -> student.getId().equals(idForDelete))
+                        .findFirst().orElseThrow(() -> new IllegalArgumentException(rb.getString("errors.you_entered_wrong_id")));
             }
             catch (IllegalArgumentException e){
                 System.out.println(e.getMessage());
@@ -55,14 +57,16 @@ public class ConsoleView implements IView {
 
     @Override
     public Student getStudentForAdd() {
-        ps.print("Введите имя студента: ");
+        ps.print(rb.getString("messages.enter_student_name"));
         String name = scanner.nextLine();
+        ps.print(rb.getString("messages.enter_student_age"));
         int age = scanner.nextInt();
         return new Student(name, age);
     }
 
     @Override
     public Command getCommand() {
+        ps.print(rb.getString("messages.enter_command"));
         String inputCommand = scanner.nextLine().toUpperCase();
         return Command.valueOf(inputCommand);
     }
