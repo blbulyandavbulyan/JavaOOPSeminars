@@ -29,14 +29,14 @@ public class Controller {
     }
 
     public void deleteStudent(){
-        Student studentForDelete = iView.selectStudentForDelete();
+        Student studentForDelete = iView.selectStudentForDelete(iModel.findAll());
         if(studentForDelete != null) {
             iModel.delete(studentForDelete);
             iView.updateView(iModel.findAll());
         }
     }
     public void updateStudent(){
-        Student studentForUpdate = iView.selectStudentForUpdate();
+        Student studentForUpdate = iView.selectStudentForUpdate(iModel.findAll());
         if(studentForUpdate != null) {
             iModel.update(studentForUpdate);
             iView.updateView(iModel.findAll());
