@@ -18,9 +18,16 @@ public class Controller {
                 case ADD -> addStudent();
                 case DELETE -> deleteStudent();
                 case UPDATE -> updateStudent();
+                case LIST -> displayStudents();
             }
         }
     }
+
+    private void displayStudents() {
+        var students = iModel.findAll();
+        iView.displayStudents(students);
+    }
+
     public void deleteStudent(){
         var students = iModel.findAll();
         Student studentForDelete = iView.selectStudentForDelete(students);
