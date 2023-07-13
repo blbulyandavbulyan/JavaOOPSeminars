@@ -11,7 +11,7 @@ public class StudentPrototype<NT, AT extends Number, IT> extends PersonPrototype
     /**
      * ИД студента
      */
-    private IT id;
+    protected IT id;
 
     /**
      * Создаёт студента с переданным возрастом, именем и ИД
@@ -39,5 +39,13 @@ public class StudentPrototype<NT, AT extends Number, IT> extends PersonPrototype
                 ", age=" + age +
                 ", name='" + name + '\'' +
                 '}';
+    }
+
+    /**
+     * Устанавливает ИД студенту
+     * @param id ИД, которое будет установлено
+     */
+    public void setId(IT id) {
+        this.id = id;
     }
 }
