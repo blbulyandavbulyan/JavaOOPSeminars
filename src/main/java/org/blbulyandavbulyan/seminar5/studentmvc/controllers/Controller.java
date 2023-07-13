@@ -11,6 +11,16 @@ public class Controller {
         this.iModel = iModel;
         this.iView = iView;
     }
+    public void run(){
+        Command c;
+        while ((c = iView.getCommand()) != Command.EXIT){
+            switch (c){
+                case ADD -> addStudent();
+                case DELETE -> deleteStudent();
+                case UPDATE -> updateStudent();
+            }
+        }
+    }
     public void deleteStudent(){
         var students = iModel.findAll();
         Student studentForDelete = iView.selectStudentForDelete(students);
