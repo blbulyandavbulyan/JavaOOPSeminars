@@ -29,20 +29,25 @@ public class Controller {
     }
 
     public void deleteStudent(){
-        var students = iModel.findAll();
         Student studentForDelete = iView.selectStudentForDelete();
-        if(studentForDelete != null)
+        if(studentForDelete != null) {
             iModel.delete(studentForDelete);
+            iView.updateView(iModel.findAll());
+        }
     }
     public void updateStudent(){
         Student studentForUpdate = iView.selectStudentForUpdate();
-        if(studentForUpdate != null)
+        if(studentForUpdate != null) {
             iModel.update(studentForUpdate);
+            iView.updateView(iModel.findAll());
+        }
 
     }
     public void addStudent(){
         Student student = iView.getStudentForAdd();
-        if(student != null)
+        if(student != null) {
             iModel.add(student);
+            iView.updateView(iModel.findAll());
+        }
     }
 }
