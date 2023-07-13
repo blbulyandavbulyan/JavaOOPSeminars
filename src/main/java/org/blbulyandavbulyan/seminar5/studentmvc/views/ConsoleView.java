@@ -36,15 +36,15 @@ public class ConsoleView implements IView {
     public Student selectStudentForDelete(Collection<Student> students) {
         ps.println(rb.getString("questions.select_student_for_deleting"));
         displayStudents(students);
-        ps.print(rb.getString("questions.input_student_id_for_deleting"));
-        int idForDelete = scanner.nextInt();
-        while (true){
+        while (true) {
+            ps.print(rb.getString("questions.input_student_id_for_deleting"));
+            int idForDelete = scanner.nextInt();
+            scanner.nextLine();
             try {
                 return students.stream()
                         .filter(student -> student.getId().equals(idForDelete))
                         .findFirst().orElseThrow(() -> new IllegalArgumentException(rb.getString("errors.you_entered_wrong_id")));
-            }
-            catch (IllegalArgumentException e){
+            } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
         }
@@ -61,13 +61,15 @@ public class ConsoleView implements IView {
         String name = scanner.nextLine();
         ps.print(rb.getString("messages.enter_student_age"));
         int age = scanner.nextInt();
+        scanner.nextLine();
         return new Student(name, age);
     }
 
     @Override
     public Command getCommand() {
         ps.print(rb.getString("messages.enter_command"));
-        String inputCommand = scanner.nextLine().toUpperCase();
+        String inputCommand;
+        inputCommand = scanner.nextLine().toUpperCase();
         return Command.valueOf(inputCommand);
     }
 }
