@@ -9,4 +9,5 @@ public interface IView {
     Student selectStudentForDelete(Collection<Student> students);
     Student selectStudentForUpdate(Collection<Student> students);
     Student getStudentForAdd();
+    Command getCommand();
 }
