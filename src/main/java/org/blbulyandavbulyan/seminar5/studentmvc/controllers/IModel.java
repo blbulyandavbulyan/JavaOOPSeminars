@@ -10,13 +10,15 @@ import java.util.Collection;
 public interface IModel {
     /**
      * Находит всех студентов в модели
-     * @return всех студентов в модели
+     * @return всех студентов в модели или пустую коллекцию, если таковых нет
      */
     Collection<Student> findAll();
 
     /**
      * Добавляет студента в модель
      * @param student студент, которого нужно добавить
+     * @throws IllegalArgumentException если студент null
+     * @throws org.blbulyandavbulyan.seminar5.studentmvc.controllers.exceptions.StudentAlreadyExistsException если студент уже существует
      */
     void add(Student student);
 
