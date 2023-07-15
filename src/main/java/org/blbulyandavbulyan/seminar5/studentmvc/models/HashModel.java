@@ -46,6 +46,9 @@ public class HashModel implements IModel {
         this.nextIdSupplier = nextStudentIdSupplier;
     }
 
+    /**
+     * @return следующее ИД полученное с помощью nextIdSupplier
+     */
     private int nextId() {
         return nextIdSupplier.get();
     }
