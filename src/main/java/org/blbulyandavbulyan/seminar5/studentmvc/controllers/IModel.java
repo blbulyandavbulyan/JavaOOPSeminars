@@ -11,7 +11,7 @@ import java.util.function.Supplier;
 public interface IModel {
     /**
      * Находит всех студентов в модели
-     * @return всех студентов в модели или пустую коллекцию, если таковых нет
+     * @return не модифицируемую коллекцию из всех студентов в модели или пустую коллекцию
      */
     Collection<Student> findAll();
 
