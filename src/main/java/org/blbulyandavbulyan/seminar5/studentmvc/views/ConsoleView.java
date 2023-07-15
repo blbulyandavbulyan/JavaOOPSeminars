@@ -86,4 +86,9 @@ public class ConsoleView implements IView {
         inputCommand = scanner.nextLine().toUpperCase();
         return Command.valueOf(inputCommand);
     }
+
+    @Override
+    public void displayErrorMessage(String msg) {
+        ps.println(msg);
+    }
 }

@@ -31,4 +31,9 @@ public interface IView {
      * @return команда, которую нужно обработать
      */
     Command getCommand();
+    /**
+     * Отображает сообщение об ошибке
+     * @param msg сообщение об ошибке, которое нужно отобразить
+     */
+    void displayErrorMessage(String msg);
 }
