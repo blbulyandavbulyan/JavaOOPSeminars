@@ -6,6 +6,9 @@ import org.blbulyandavbulyan.seminar5.studentmvc.views.ConsoleView;
 
 import java.util.ResourceBundle;
 
+/**
+ * Точка входа в приложение
+ */
 public class Main {
     public static void main(String[] args) {
         ConsoleView consoleView = new ConsoleView(System.out, System.in, ResourceBundle.getBundle("locales/studentmvc/console-text"));

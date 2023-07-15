@@ -10,22 +10,48 @@ import java.util.Collection;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 
+/**
+ * Данный класс предоставляет реализацию IView для работы с консолью
+ */
 public class ConsoleView implements IView {
+    /**
+     * Поток в который будет печататься результат
+     */
     private final PrintStream ps;
+    /**
+     * Сканнер с помощью которого будут считываться данные
+     */
     private final Scanner scanner;
+    /**
+     * ResourceBundle с требуемой локалью
+     */
     private final ResourceBundle rb;
 
+    /**
+     * Создаёт экземпляр данного класса
+     * @param ps поток в который будет печататься результат
+     * @param is входной поток
+     * @param rb ResourceBundle с требуемой локалью
+     */
     public ConsoleView(PrintStream ps, InputStream is, ResourceBundle rb) {
         this.ps = ps;
         scanner = new Scanner(is);
         this.rb = rb;
     }
 
+    /**
+     * Просто печатает студентов на экран, без всяких дополнительных надписей
+     * @param students студенты, которые должны быть отпечатаны
+     */
     @Override
     public void displayStudents(Collection<Student> students) {
         students.forEach(ps::println);
     }
 
+    /**
+     * Печатает студентов на экран(с расчётом на то, что это действие происходит после выполнения какой-то операции)
+     * @param students студенты, которые должны быть напечатаны
+     */
     @Override
     public void updateView(Collection<Student> students) {
         ps.println(rb.getString("messages.result"));
@@ -55,6 +81,10 @@ public class ConsoleView implements IView {
         return null;
     }
 
+    /**
+     * Метод запрашивает студента с помощью входного потока
+     * @return полученный студент
+     */
     @Override
     public Student getStudentForAdd() {
         ps.print(rb.getString("messages.enter_student_name"));
@@ -65,6 +95,10 @@ public class ConsoleView implements IView {
         return new Student(name, age);
     }
 
+    /**
+     * Метод считывает команду с клавиатуры из входного потока
+     * @return считанная команда
+     */
     @Override
     public Command getCommand() {
         ps.print(rb.getString("messages.enter_command"));

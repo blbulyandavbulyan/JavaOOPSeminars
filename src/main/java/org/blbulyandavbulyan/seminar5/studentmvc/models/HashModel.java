@@ -8,17 +8,36 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Предоставляет модель для студентов, в которых поле ИД уникальное, и оно будет использоваться для поиска их по модели
+ */
 public class HashModel implements IModel {
+    /**
+     * Map из ИД студента в студента
+     */
     private final Map<Integer, Student> idToStudent = new HashMap<>();
-    private Integer nextId = 0;
+    /**
+     * Следующий идентификатор
+     */
+    private Integer nextId = 1;
+
+    /**
+     * Возвращает всех студентов в данной модели
+     * @return студенты, хранящиеся в данной модели
+     */
     @Override
     public Collection<Student> findAll() {
         return Collections.unmodifiableCollection(idToStudent.values());
     }
 
+    /**
+     * Добавляет студента в модель
+     * Поле ИД будет заменено на внутреннее ИД при добавлении
+     * @param student студент, которого нужно добавить
+     */
     @Override
     public void add(Student student) {
-        int studentID = ++nextId;
+        int studentID = nextId++;
         student.setId(studentID);
         idToStudent.put(studentID, student);
     }
@@ -29,9 +48,9 @@ public class HashModel implements IModel {
         else throw new IllegalArgumentException("student with given id doesn't exists in model!");
     }
 
+
     @Override
-    public void delete(Student student) {
-        if (idToStudent.containsKey(student.getId())) idToStudent.remove(student.getId());
-        else throw new IllegalArgumentException("student with given id doesn't exists in model!");
+    public boolean delete(Student student) {
+        return idToStudent.remove(student.getId()) != null;
     }
 }
