@@ -17,6 +17,9 @@ public class HashModel implements IModel {
      * Map из ИД студента в студента
      */
     private final Map<Integer, Student> idToStudent = new HashMap<>();
+    /**
+     * Функция поставщик следующего ИД для добавления нового студента
+     */
     private Supplier<Integer> nextIdSupplier;
 
     @Override
