@@ -17,7 +17,6 @@ public class Controller {
             switch (c){
                 case ADD -> addStudent();
                 case DELETE -> deleteStudent();
-                case UPDATE -> updateStudent();
                 case LIST -> displayStudents();
             }
         }
@@ -34,14 +33,6 @@ public class Controller {
             iModel.delete(studentForDelete);
             iView.updateView(iModel.findAll());
         }
-    }
-    public void updateStudent(){
-        Student studentForUpdate = iView.selectStudentForUpdate(iModel.findAll());
-        if(studentForUpdate != null) {
-            iModel.update(studentForUpdate);
-            iView.updateView(iModel.findAll());
-        }
-
     }
     public void addStudent(){
         Student student = iView.getStudentForAdd();

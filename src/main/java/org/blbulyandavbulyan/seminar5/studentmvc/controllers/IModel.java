@@ -21,9 +21,6 @@ public interface IModel {
      * @throws org.blbulyandavbulyan.seminar5.studentmvc.controllers.exceptions.StudentAlreadyExistsException если студент уже существует
      */
     void add(Student student);
-
-    void update(Student student);
-
     /**
      * Удаляет студента из модели
      * @param student студент, которого нужно удалить

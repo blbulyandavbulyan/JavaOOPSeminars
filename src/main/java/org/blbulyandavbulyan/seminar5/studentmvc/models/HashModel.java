@@ -41,14 +41,6 @@ public class HashModel implements IModel {
         student.setId(studentID);
         idToStudent.put(studentID, student);
     }
-
-    @Override
-    public void update(Student student) {
-        if (idToStudent.containsKey(student.getId())) idToStudent.replace(student.getId(), student);
-        else throw new IllegalArgumentException("student with given id doesn't exists in model!");
-    }
-
-
     @Override
     public boolean delete(Student student) {
         return idToStudent.remove(student.getId()) != null;
