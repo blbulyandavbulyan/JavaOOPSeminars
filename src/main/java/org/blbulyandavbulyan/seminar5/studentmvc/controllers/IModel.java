@@ -3,6 +3,7 @@ package org.blbulyandavbulyan.seminar5.studentmvc.controllers;
 import org.blbulyandavbulyan.seminar3.studentapp.domen.Student;
 
 import java.util.Collection;
+import java.util.function.Supplier;
 
 /**
  * Предоставляет интерфейс для модели студентов
@@ -34,4 +35,10 @@ public interface IModel {
      * @return true если такой студент в модели есть
      */
     boolean contains(int studentId);
+
+    /**
+     * Устанавливает источник новых ИД для студентов
+     * @param nextStudentIdSupplier функция, возвращающая уникальное целое число при каждом вызове
+     */
+    void setNextStudentIdSupplier(Supplier<Integer> nextStudentIdSupplier);
 }
