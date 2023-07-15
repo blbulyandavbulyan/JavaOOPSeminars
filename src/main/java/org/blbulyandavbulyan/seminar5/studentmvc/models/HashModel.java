@@ -19,26 +19,18 @@ public class HashModel implements IModel {
     private final Map<Integer, Student> idToStudent = new HashMap<>();
     private Supplier<Integer> nextIdSupplier;
 
-    /**
-     * Возвращает всех студентов в данной модели
-     * @return студенты, хранящиеся в данной модели
-     */
     @Override
     public Collection<Student> findAll() {
         return Collections.unmodifiableCollection(idToStudent.values());
     }
 
-    /**
-     * Добавляет студента в модель
-     * Поле ИД будет заменено на внутреннее ИД при добавлении
-     * @param student студент, которого нужно добавить
-     */
     @Override
     public void add(Student student) {
         int studentID = nextId();
         student.setId(studentID);
         idToStudent.put(studentID, student);
     }
+
     @Override
     public boolean delete(int idForDelete) {
         return idToStudent.remove(idForDelete) != null;
@@ -53,7 +45,8 @@ public class HashModel implements IModel {
     public void setNextStudentIdSupplier(Supplier<Integer> nextStudentIdSupplier) {
         this.nextIdSupplier = nextStudentIdSupplier;
     }
-    private int nextId(){
+
+    private int nextId() {
         return nextIdSupplier.get();
     }
 }
