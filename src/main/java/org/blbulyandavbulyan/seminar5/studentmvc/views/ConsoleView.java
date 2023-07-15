@@ -50,17 +50,6 @@ public class ConsoleView implements IView {
         students.forEach(ps::println);
     }
 
-    /**
-     * Печатает студентов на экран(с расчётом на то, что это действие происходит после выполнения какой-то операции)
-     *
-     * @param students студенты, которые должны быть напечатаны
-     */
-    @Override
-    public void updateView(Collection<Student> students) {
-        ps.println(rb.getString("messages.result"));
-        displayStudents(students);
-    }
-
     @Override
     public int getStudentIdForDelete() {
         ps.println(rb.getString("questions.select_student_for_deleting"));
@@ -68,11 +57,6 @@ public class ConsoleView implements IView {
         int idForDelete = scanner.nextInt();
         scanner.nextLine();
         return idForDelete;
-    }
-
-    @Override
-    public Student selectStudentForUpdate(Collection<Student> students) {
-        return null;
     }
 
     /**
