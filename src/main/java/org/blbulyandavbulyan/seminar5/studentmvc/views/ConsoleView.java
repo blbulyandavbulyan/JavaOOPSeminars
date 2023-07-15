@@ -29,6 +29,7 @@ public class ConsoleView implements IView {
 
     /**
      * Создаёт экземпляр данного класса
+     *
      * @param ps поток в который будет печататься результат
      * @param is входной поток
      * @param rb ResourceBundle с требуемой локалью
@@ -41,6 +42,7 @@ public class ConsoleView implements IView {
 
     /**
      * Просто печатает студентов на экран, без всяких дополнительных надписей
+     *
      * @param students студенты, которые должны быть отпечатаны
      */
     @Override
@@ -50,6 +52,7 @@ public class ConsoleView implements IView {
 
     /**
      * Печатает студентов на экран(с расчётом на то, что это действие происходит после выполнения какой-то операции)
+     *
      * @param students студенты, которые должны быть напечатаны
      */
     @Override
@@ -61,19 +64,10 @@ public class ConsoleView implements IView {
     @Override
     public int getStudentIdForDelete() {
         ps.println(rb.getString("questions.select_student_for_deleting"));
-        displayStudents(students);
-        while (true) {
-            ps.print(rb.getString("questions.input_student_id_for_deleting"));
-            int idForDelete = scanner.nextInt();
-            scanner.nextLine();
-            try {
-                return students.stream()
-                        .filter(student -> student.getId().equals(idForDelete))
-                        .findFirst().orElseThrow(() -> new IllegalArgumentException(rb.getString("errors.you_entered_wrong_id")));
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
+        ps.print(rb.getString("questions.input_student_id_for_deleting"));
+        int idForDelete = scanner.nextInt();
+        scanner.nextLine();
+        return idForDelete;
     }
 
     @Override
@@ -83,6 +77,7 @@ public class ConsoleView implements IView {
 
     /**
      * Метод запрашивает студента с помощью входного потока
+     *
      * @return полученный студент
      */
     @Override
@@ -97,6 +92,7 @@ public class ConsoleView implements IView {
 
     /**
      * Метод считывает команду с клавиатуры из входного потока
+     *
      * @return считанная команда
      */
     @Override
