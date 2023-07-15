@@ -72,9 +72,11 @@ public class Controller {
         for(IModel iModel : models){
             if(iModel.contains(idForDelete)){
                 iModel.delete(idForDelete);
-                break;
+                return;
             }
         }
+        //уведомляем о том что такого ИД не было найдено
+        iView.notifyAboutGivenIdNotFound();
     }
 
     /**
