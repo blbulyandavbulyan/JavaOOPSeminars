@@ -32,8 +32,7 @@ public interface IView {
      */
     Command getCommand();
     /**
-     * Отображает сообщение об ошибке
-     * @param msg сообщение об ошибке, которое нужно отобразить
+     * Информирует пользователя о том, что данный им ИД не найден
      */
-    void displayErrorMessage(String msg);
+    void notifyAboutGivenIdNotFound();
 }

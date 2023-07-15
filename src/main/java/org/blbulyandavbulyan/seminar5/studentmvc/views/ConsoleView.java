@@ -88,7 +88,7 @@ public class ConsoleView implements IView {
     }
 
     @Override
-    public void displayErrorMessage(String msg) {
-        ps.println(msg);
+    public void notifyAboutGivenIdNotFound() {
+        ps.println(rb.getString("errors.you_entered_wrong_id"));
     }
 }
