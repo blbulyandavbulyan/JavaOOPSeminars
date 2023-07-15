@@ -23,8 +23,15 @@ public interface IModel {
     void add(Student student);
     /**
      * Удаляет студента из модели
-     * @param student студент, которого нужно удалить
+     * @param idForDelete ИД студента, которого нужно удалить
      * @return true если такой студент был, иначе false
      */
-    boolean delete(Student student);
+    boolean delete(int idForDelete);
+
+    /**
+     * Проверяет, содержится ли студент с заданным ИД в модели
+     * @param studentId ид студента для проверки
+     * @return true если такой студент в модели есть
+     */
+    boolean contains(int studentId);
 }

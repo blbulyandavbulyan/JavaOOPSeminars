@@ -4,6 +4,7 @@ import org.blbulyandavbulyan.seminar5.studentmvc.controllers.Controller;
 import org.blbulyandavbulyan.seminar5.studentmvc.models.HashModel;
 import org.blbulyandavbulyan.seminar5.studentmvc.views.ConsoleView;
 
+import java.util.List;
 import java.util.ResourceBundle;
 
 /**
@@ -13,7 +14,7 @@ public class Main {
     public static void main(String[] args) {
         ConsoleView consoleView = new ConsoleView(System.out, System.in, ResourceBundle.getBundle("locales/studentmvc/console-text"));
         HashModel hashModel = new HashModel();
-        Controller controller = new Controller(hashModel, consoleView);
+        Controller controller = new Controller(List.of(hashModel), consoleView);
         controller.run();
     }
 }

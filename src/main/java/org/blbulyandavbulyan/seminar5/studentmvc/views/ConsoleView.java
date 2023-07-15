@@ -59,7 +59,7 @@ public class ConsoleView implements IView {
     }
 
     @Override
-    public Student selectStudentForDelete(Collection<Student> students) {
+    public int getStudentIdForDelete() {
         ps.println(rb.getString("questions.select_student_for_deleting"));
         displayStudents(students);
         while (true) {

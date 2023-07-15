@@ -42,7 +42,12 @@ public class HashModel implements IModel {
         idToStudent.put(studentID, student);
     }
     @Override
-    public boolean delete(Student student) {
-        return idToStudent.remove(student.getId()) != null;
+    public boolean delete(int idForDelete) {
+        return idToStudent.remove(idForDelete) != null;
+    }
+
+    @Override
+    public boolean contains(int studentId) {
+        return idToStudent.containsKey(studentId);
     }
 }
