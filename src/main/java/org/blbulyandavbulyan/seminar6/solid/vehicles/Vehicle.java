@@ -1,8 +1,8 @@
 package org.blbulyandavbulyan.seminar6.solid.vehicles;
 
 public abstract class Vehicle {
-    int maxSpeed;
-    String type;
+    private final int maxSpeed;
+    private final String type;
 
     public Vehicle(int maxSpeed, String type) {
         this.maxSpeed = maxSpeed;
@@ -16,4 +16,5 @@ public abstract class Vehicle {
     public String getType() {
         return this.type;
     }
+    abstract double calculateAllowedSpeed();
 }
