@@ -1,9 +1,9 @@
 package org.blbulyandavbulyan.seminar6.solid.car;
 
 public class Car {
-    private PetrolEngine engine;
+    private AbstractEngine engine;
 
-    public Car(PetrolEngine engine) {
+    public Car(AbstractEngine engine) {
         this.engine = engine;
     }
 
