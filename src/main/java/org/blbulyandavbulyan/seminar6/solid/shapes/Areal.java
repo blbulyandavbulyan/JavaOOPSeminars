@@ -1,8 +1,6 @@
 package org.blbulyandavbulyan.seminar6.solid.shapes;
 
-public interface Shape {
+public interface Areal{
     double area();
-
-    double volume();
 }
 
