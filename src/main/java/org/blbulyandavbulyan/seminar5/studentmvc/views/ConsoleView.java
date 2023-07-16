@@ -13,7 +13,7 @@ import java.util.Scanner;
 /**
  * Данный класс предоставляет реализацию IView для работы с консолью
  */
-public class ConsoleView implements IView {
+public  class ConsoleView implements IView{
     /**
      * Поток в который будет печататься результат
      */
