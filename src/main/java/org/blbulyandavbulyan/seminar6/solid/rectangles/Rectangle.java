@@ -1,18 +1,11 @@
 package org.blbulyandavbulyan.seminar6.solid.rectangles;
 
-public class Rectangle {
-    private int width;
-    private int height;
+public class Rectangle extends AbstractRectangle{
 
     public void setWidth(int width) {
-        this.width = width;
+        super.setWidth(width);
     }
-
     public void setHeight(int height) {
-        this.height = height;
-    }
-
-    public int area() {
-        return this.width * this.height;
+        super.setHeight(height);
     }
 }
