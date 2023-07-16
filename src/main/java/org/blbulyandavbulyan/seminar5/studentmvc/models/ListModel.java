@@ -9,9 +9,22 @@ import java.util.Collections;
 import java.util.List;
 import java.util.function.Supplier;
 
+/**
+ * Предоставляет списковую модель студентов
+ */
 public class ListModel implements IModel {
+    /**
+     * Генератор следующего ИД студента
+     */
     private Supplier<Integer> nextIdSupplier;
-    private List<Student> students;
+    /**
+     * Список со студентами
+     */
+    private final List<Student> students;
+
+    /**
+     * Создаёт экземпляр модели с пустым списком студентов
+     */
     public ListModel(){
         students = new ArrayList<>();
     }
