@@ -1,6 +1,6 @@
 package org.blbulyandavbulyan.seminar6.solid.shapes;
 
-public class Cube implements Shape {
+public class Cube implements Areal, Volumetric {
     private int edge;
 
     public Cube(int edge) {
