@@ -1,4 +1,4 @@
-package org.blbulyandavbulyan.seminar6.solid.rectangles;
+package org.blbulyandavbulyan.seminar6.solid.shapes;
 
 public class Square extends Rectangle {
     @Override
