@@ -1,4 +1,4 @@
-package org.blbulyandavbulyan.seminar6.solid.shapes;
+package org.blbulyandavbulyan.seminar6.solid.rectangles;
 
 public class Rectangle {
     private int width;
